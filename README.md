@@ -41,7 +41,7 @@ git clone https://github.com/Boleznen/SilentLens.git
 cd SilentLens
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
 
-Готовый SilentLens.exe появится в bin\Release\net8.0-windows\win-x64\publish\.
+## Готовый SilentLens.exe появится в bin\Release\net8.0-windows\win-x64\publish\.
 Использование
 
     Файл → Добавить файлы (или Добавить папку, или перетащи фото в окно).
