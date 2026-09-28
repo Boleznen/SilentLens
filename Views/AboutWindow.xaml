@@ -1,0 +1,160 @@
+﻿<Window x:Class="SilentLens.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="О программе — Silent Lens"
+        Height="620" Width="540"
+        MinHeight="500"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="{StaticResource BrushBackground}">
+
+    <Border BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Тайтлбар -->
+            <Border Grid.Row="0"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid Height="36">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="12,0,0,0">
+                        <TextBlock Text="◉" FontSize="16"
+                                   Foreground="{StaticResource BrushAccent}"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="О программе"
+                                   Margin="8,0,0,0"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button Grid.Column="1"
+                            Style="{StaticResource CloseButton}"
+                            Click="BtnClose_Click" ToolTip="Закрыть">
+                        <Path Data="M 0,0 L 10,10 M 10,0 L 0,10"
+                              Stroke="{StaticResource BrushTextPrimary}"
+                              StrokeThickness="1"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Содержимое -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30,24">
+                <StackPanel>
+                    <TextBlock Text="◉"
+                               FontSize="56"
+                               Foreground="{StaticResource BrushAccent}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,14"/>
+
+                    <TextBlock Text="Silent Lens"
+                               FontSize="24"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,6"/>
+
+                    <TextBlock x:Name="VersionText"
+                               Text="v1.0.0"
+                               FontSize="13"
+                               Foreground="{StaticResource BrushTextSecondary}"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"/>
+
+                    <TextBlock Text="Локальное приложение для просмотра и удаления метаданных из фотографий."
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushTextSecondary}"
+                               Margin="0,0,0,12"/>
+
+                    <TextBlock Text="Работает полностью офлайн. Не отправляет данные никуда."
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushTextSecondary}"
+                               Margin="0,0,0,20"/>
+
+                    <Border Background="{StaticResource BrushPanel}"
+                            BorderBrush="{StaticResource BrushBorder}"
+                            BorderThickness="1"
+                            CornerRadius="6"
+                            Padding="16,12"
+                            Margin="0,0,0,20">
+                        <StackPanel>
+                            <TextBlock Text="Что умеет:"
+                                       FontWeight="SemiBold"
+                                       Foreground="{StaticResource BrushAccent}"
+                                       Margin="0,0,0,8"/>
+
+                            <TextBlock Text="• Показывает EXIF, XMP, IPTC и GPS из фото"
+                                       Foreground="{StaticResource BrushTextSecondary}"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,4"/>
+                            <TextBlock Text="• Стирает метаданные из JPEG, PNG, WebP"
+                                       Foreground="{StaticResource BrushTextSecondary}"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,4"/>
+                            <TextBlock Text="• Сохраняет оригиналы в _Original"
+                                       Foreground="{StaticResource BrushTextSecondary}"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,4"/>
+                            <TextBlock Text="• Пакетная обработка с прогрессом"
+                                       Foreground="{StaticResource BrushTextSecondary}"
+                                       TextWrapping="Wrap"
+                                       Margin="0,0,0,4"/>
+                            <TextBlock Text="• Карта GPS прямо в приложении"
+                                       Foreground="{StaticResource BrushTextSecondary}"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Text="© 2026 Boleznen"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushTextSecondary}"
+                               Margin="0,0,0,4"/>
+
+                    <TextBlock Text="Telegram: @Boleznen"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushAccent}"
+                               Cursor="Hand"
+                               MouseLeftButtonDown="Telegram_Click"
+                               Margin="0,0,0,4"/>
+
+                    <TextBlock Text="Email: boleznen@gmail.com"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushAccent}"
+                               Cursor="Hand"
+                               MouseLeftButtonDown="Email_Click"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Кнопки -->
+            <Border Grid.Row="2"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,1,0,0"
+                    Padding="16,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Связь с разработчиком"
+                            Style="{StaticResource BaseButton}"
+                            MinWidth="180"
+                            Margin="0,0,8,0"
+                            Click="BtnContact_Click"/>
+                    <Button Content="Закрыть"
+                            Style="{StaticResource BaseButton}"
+                            MinWidth="100"
+                            Click="BtnClose_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

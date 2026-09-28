@@ -1,0 +1,101 @@
+﻿<Window x:Class="SilentLens.Views.BatchProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Обработка — Silent Lens"
+        Height="220" Width="500"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="{StaticResource BrushBackground}">
+
+    <Border BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Тайтлбар -->
+            <Border Grid.Row="0"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid Height="36">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="12,0,0,0">
+                        <TextBlock Text="⏳" FontSize="16"
+                                   Foreground="{StaticResource BrushAccent}"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Обработка файлов"
+                                   Margin="8,0,0,0"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button Grid.Column="1"
+                            x:Name="BtnTitleClose"
+                            Style="{StaticResource CloseButton}"
+                            Click="BtnCancel_Click"
+                            ToolTip="Отменить">
+                        <Path Data="M 0,0 L 10,10 M 10,0 L 0,10"
+                              Stroke="{StaticResource BrushTextPrimary}"
+                              StrokeThickness="1"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Содержимое -->
+            <Grid Grid.Row="1" Margin="20,16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           x:Name="CounterText"
+                           Text="Обработано 0 из 0"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,12"/>
+
+                <ProgressBar Grid.Row="1"
+                             x:Name="Progress"
+                             Height="10"
+                             Minimum="0"
+                             Maximum="100"
+                             Value="0"
+                             Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="2"
+                           x:Name="CurrentFileText"
+                           Text=""
+                           TextTrimming="CharacterEllipsis"
+                           Foreground="{StaticResource BrushTextSecondary}"
+                           FontSize="12"/>
+            </Grid>
+
+            <!-- Кнопки -->
+            <Border Grid.Row="2"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,1,0,0"
+                    Padding="16,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="BtnCancel"
+                            Content="Отмена"
+                            Style="{StaticResource BaseButton}"
+                            MinWidth="100"
+                            Click="BtnCancel_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

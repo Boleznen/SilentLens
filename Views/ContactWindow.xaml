@@ -1,0 +1,204 @@
+﻿<Window x:Class="SilentLens.Views.ContactWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Связь с разработчиком — Silent Lens"
+        Height="480" Width="520"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="{StaticResource BrushBackground}">
+
+    <Border BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Тайтлбар -->
+            <Border Grid.Row="0"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid Height="36">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="12,0,0,0">
+                        <TextBlock Text="✉" FontSize="16"
+                                   Foreground="{StaticResource BrushAccent}"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Связь с разработчиком"
+                                   Margin="8,0,0,0"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button Grid.Column="1"
+                            Style="{StaticResource CloseButton}"
+                            Click="BtnClose_Click" ToolTip="Закрыть">
+                        <Path Data="M 0,0 L 10,10 M 10,0 L 0,10"
+                              Stroke="{StaticResource BrushTextPrimary}"
+                              StrokeThickness="1"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Содержимое -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="24">
+                <StackPanel>
+                    <TextBlock Text="Есть вопрос, идея или баг?"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,12"/>
+
+                    <TextBlock Text="Напишите разработчику — отвечу по возможности быстро."
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Foreground="{StaticResource BrushTextSecondary}"
+                               Margin="0,0,0,24"/>
+
+                    <!-- Telegram -->
+                    <Border Background="{StaticResource BrushPanel}"
+                            BorderBrush="{StaticResource BrushBorder}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="16"
+                            Margin="0,0,0,12">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="✈"
+                                       FontSize="28"
+                                       Foreground="#29A9EB"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,14,0"/>
+
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Text="Telegram"
+                                           FontWeight="SemiBold"
+                                           FontSize="14"/>
+                                <TextBlock Text="@Boleznen"
+                                           Foreground="{StaticResource BrushTextSecondary}"
+                                           FontSize="12"
+                                           Margin="0,2,0,0"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="2"
+                                    Content="Открыть"
+                                    Style="{StaticResource AccentButton}"
+                                    MinWidth="100"
+                                    VerticalAlignment="Center"
+                                    Click="OpenTelegram_Click"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Почта -->
+                    <Border Background="{StaticResource BrushPanel}"
+                            BorderBrush="{StaticResource BrushBorder}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="16"
+                            Margin="0,0,0,12">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="✉"
+                                       FontSize="26"
+                                       Foreground="{StaticResource BrushAccent}"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,14,0"/>
+
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Text="Email"
+                                           FontWeight="SemiBold"
+                                           FontSize="14"/>
+                                <TextBlock x:Name="EmailText"
+                                           Text="boleznen@gmail.com"
+                                           Foreground="{StaticResource BrushTextSecondary}"
+                                           FontSize="12"
+                                           Margin="0,2,0,0"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="2"
+                                    Content="Скопировать"
+                                    Style="{StaticResource BaseButton}"
+                                    MinWidth="120"
+                                    VerticalAlignment="Center"
+                                    Click="CopyEmail_Click"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- GitHub -->
+                    <Border Background="{StaticResource BrushPanel}"
+                            BorderBrush="{StaticResource BrushBorder}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="16"
+                            Margin="0,0,0,12">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="◉"
+                                       FontSize="26"
+                                       Foreground="{StaticResource BrushAccent}"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,14,0"/>
+
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Text="GitHub"
+                                           FontWeight="SemiBold"
+                                           FontSize="14"/>
+                                <TextBlock Text="github.com/Boleznen/SilentLens"
+                                           Foreground="{StaticResource BrushTextSecondary}"
+                                           FontSize="12"
+                                           Margin="0,2,0,0"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="2"
+                                    Content="Открыть"
+                                    Style="{StaticResource BaseButton}"
+                                    MinWidth="100"
+                                    VerticalAlignment="Center"
+                                    Click="OpenGitHub_Click"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Кнопки -->
+            <Border Grid.Row="2"
+                    Background="{StaticResource BrushPanel}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,1,0,0"
+                    Padding="16,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Закрыть"
+                            Style="{StaticResource BaseButton}"
+                            MinWidth="100"
+                            Click="BtnClose_Click"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
