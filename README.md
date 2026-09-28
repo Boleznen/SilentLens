@@ -100,3 +100,6 @@ MIT License — см. LICENSE.
 Boleznen — Telegram — boleznen@gmail.com
 
 Silent Lens — часть серии локальных утилит для Windows (Dark Ledger, Digital Gardener).
+
+<img width="1920" height="1080" alt="изображение" src="https://github.com/user-attachments/assets/3a036dea-d7af-4268-897c-b297b54f9006" />
+
