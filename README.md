@@ -91,10 +91,11 @@ Delete	Убрать из списка
 
     Hardcodet.NotifyIcon.Wpf — иконка в трее
 
-Лицензия
+## Лицензия
 
 MIT License — см. LICENSE.
-Автор
+
+## Автор
 
 Boleznen — Telegram — boleznen@gmail.com
 
